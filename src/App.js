@@ -1,44 +1,60 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import FetchData from './fetchdata.js'
-import AnarchyListItem from './anarchylistitem.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faAnchor } from '@fortawesome/free-solid-svg-icons'
+import Button from '@material-ui/core/Button';
+import 'typeface-roboto';
 
 library.add(faReact, faAnchor)
 
-let listData = [
-    {id:1, name: 'Vandalism'},
-    {id:2, name: 'Lists'},
-    {id:3, name: 'Irony'},
-    {id:4, name: 'Lists'},
-    {id:5, name: 'Repitition'}
-]
+export default class App extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            count: 10
+        }
+    }
 
-export default function App () {
-    return (
-      <div className="center">
-        <h1>
-            <p>
-                <FontAwesomeIcon icon={['fab', 'react']} size='2x' style={{"color":"#61dafb"}}/>
-                &nbsp;React Hooks&nbsp;
-                <FontAwesomeIcon icon="anchor" size='2x'/>
-            </p>
-            Things I Hate:-
-        </h1>
-        <h2>
-            <ol type = "1">
-                {listData.map(item => (<AnarchyListItem key={item.id}>{item.name}</AnarchyListItem>))}
-            </ol>
-              <ol type = "A">
-                <AnarchyListItem className="test">Inconsitency</AnarchyListItem>
-              </ol>
-        </h2>
-        <FetchData />
-      </div>
-    );
+    updateCount(){
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
+    decrementCount(){
+        this.setState({
+            count: this.state.count - 1
+        })
+    }
+
+    render() {
+        return (
+          <div className="center">
+            <h1>
+                <p>
+                    <FontAwesomeIcon icon={['fab', 'react']} size='2x' style={{"color":"#61dafb"}}/>
+                    &nbsp;
+                    React Hooks
+                    &nbsp;
+                    <FontAwesomeIcon icon="anchor" size='2x'/>
+                </p>
+            </h1>
+                <p>
+                    <Button variant="contained" color="primary" onClick={this.decrementCount.bind(this)}>Remove</Button>
+                    &nbsp;
+                    &nbsp;
+                    <Button variant="contained" color="default" onClick={this.updateCount.bind(this)}>Add</Button>
+                </p>
+              <h2>
+                List Downloaded from API:-
+              </h2>
+            <FetchData count={this.state.count} />
+          </div>
+        );
+    }
 }
 
 

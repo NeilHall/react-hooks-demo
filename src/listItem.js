@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AnarchyListItem({ className, component: Component = "li", ...props}) {
+function ListItem({ className, component: Component = "li", ...props}) {
     return (
         <Component
             className={["anarchist-list-item", className].join(" ")}
@@ -9,4 +9,4 @@ function AnarchyListItem({ className, component: Component = "li", ...props}) {
     )
 }
 
-export default AnarchyListItem
+export default ListItem

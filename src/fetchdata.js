@@ -1,42 +1,33 @@
 import React,{Component} from 'react';
-import AnarchyListItem from './anarchylistitem.js'
-
-// function Anarchylistitem({ className, component: Component = "li", ...props}) {
-//     return (
-//         <Component
-//             className={["anarchist-list-item", className].join(" ")}
-//             {...props}
-//         />
-//     )
-// }
+import ListItem from './listItem.js'
 
 class FetchData extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state={
-            people:[]
+            peopleList:[{name:"Star Wars Characters Should Load Here"}]
         }
     }
 
     async fetchAsync () {
-        // await response of fetch call
-        let response = await fetch('https://swapi.co/api/people/');
-        // only proceed once promise is resolved
-        let data = await response.json();
-        // only proceed once second promise is resolved
-        this.setState({
-            people: data.results
+        let response = await fetch('https://swapi.co/api/people/'); // await fetch call
+        let data = await response.json();                                 // proceed when promise is resolved
+
+        this.setState({                                             // proceed when second promise is resolved
+            peopleList: data.results
         });
+        console.log(this.state.peopleList)
     }
 
     componentDidMount() {
         this.fetchAsync()
-        console.log(this.state.people)
     }
 
     listData(){
         return(
-            this.state.people.map(person=>(<AnarchyListItem key={person.name}>{person.name}</AnarchyListItem>))
+            this.state.peopleList
+                .filter((value,index) => index < this.props.count)
+                .map(person=>(<ListItem key={person.name}>{person.name}</ListItem>))
         )
     }
 
