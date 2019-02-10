@@ -53,10 +53,10 @@ export default class App extends Component{
                 </p>
             </h1>
                 <p>
-                    <Button variant="contained" color="primary" onClick={this.decrementCount}>Remove</Button>
+                    <Button variant="contained" color="primary" onClick={this.decrementCount}>Remove Item</Button>
                     &nbsp;
                     &nbsp;
-                    <Button variant="contained" color="default" onClick={this.incrementCount}>Add</Button>
+                    <Button variant="contained" color="default" onClick={this.incrementCount}>Add Item</Button>
                 </p>
               <h2>
                 List Downloaded from API:-
