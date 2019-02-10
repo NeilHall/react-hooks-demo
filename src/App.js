@@ -16,9 +16,11 @@ export default class App extends Component{
         this.state={
             count: 10
         }
+        this.decrementCount = this.decrementCount.bind(this)
+        this.incrementCount = this.incrementCount.bind(this)
     }
 
-    updateCount(){
+    incrementCount(){
         this.setState({
             count: this.state.count + 1
         })
@@ -43,10 +45,10 @@ export default class App extends Component{
                 </p>
             </h1>
                 <p>
-                    <Button variant="contained" color="primary" onClick={this.decrementCount.bind(this)}>Remove</Button>
+                    <Button variant="contained" color="primary" onClick={this.decrementCount}>Remove</Button>
                     &nbsp;
                     &nbsp;
-                    <Button variant="contained" color="default" onClick={this.updateCount.bind(this)}>Add</Button>
+                    <Button variant="contained" color="default" onClick={this.incrementCount}>Add</Button>
                 </p>
               <h2>
                 List Downloaded from API:-
