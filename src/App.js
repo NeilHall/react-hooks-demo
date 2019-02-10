@@ -32,6 +32,14 @@ export default class App extends Component{
         })
     }
 
+    componentDidMount() {
+        document.title = 'count = ' + this.state.count
+    }
+
+    componentDidUpdate() {
+        document.title = 'count = ' + this.state.count
+    }
+
     render() {
         return (
           <div className="center">
