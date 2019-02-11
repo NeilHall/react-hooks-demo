@@ -43,20 +43,15 @@ export default class App extends Component{
     render() {
         return (
           <div className="center">
-            <h1>
+              <h1>
+                  <FontAwesomeIcon icon={['fab', 'react']} size='2x' style={{"color":"#61dafb"}} />
+                  &nbsp;React Hooks&nbsp;
+                  <FontAwesomeIcon icon={['fas', 'anchor']} size='2x' style={{"color":"#61dafb"}} />
+              </h1>
                 <p>
-                    <FontAwesomeIcon icon={['fab', 'react']} size='2x' style={{"color":"#61dafb"}}/>
-                    &nbsp;
-                    React Hooks
-                    &nbsp;
-                    <FontAwesomeIcon icon="anchor" size='2x'/>
-                </p>
-            </h1>
-                <p>
-                    <Button variant="contained" color="primary" onClick={this.decrementCount}>Remove Item</Button>
-                    &nbsp;
-                    &nbsp;
-                    <Button variant="contained" color="default" onClick={this.incrementCount}>Add Item</Button>
+                    <Button onClick={this.decrementCount}>Remove Item</Button>
+                    &nbsp;&nbsp;
+                    <Button onClick={this.incrementCount}>Add Item</Button>
                 </p>
               <h2>
                 List Downloaded from API:-

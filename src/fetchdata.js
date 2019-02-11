@@ -27,14 +27,16 @@ class FetchData extends Component {
         return(
             this.state.peopleList
                 .filter((value,index) => index < this.props.count)
-                .map(person=>(<ListItem key={person.name}>{person.name}</ListItem>))
+                .map(person=>(
+                    <ListItem key={person.name} className={"star-wars"}>{person.name}</ListItem>)
+                )
         )
     }
 
     render() {
         return (
             <div>
-            {this.listData()}
+                {this.listData()}
             </div>
         );
     }
