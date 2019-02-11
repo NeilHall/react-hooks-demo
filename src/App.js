@@ -20,6 +20,14 @@ export default class App extends Component{
         this.incrementCount = this.incrementCount.bind(this)
     }
 
+    componentDidMount() {
+        document.title = 'count = ' + this.state.count
+    }
+
+    componentDidUpdate() {
+        document.title = 'count = ' + this.state.count
+    }
+
     incrementCount(){
         this.setState({
             count: this.state.count + 1
@@ -30,14 +38,6 @@ export default class App extends Component{
         this.setState({
             count: this.state.count - 1
         })
-    }
-
-    componentDidMount() {
-        document.title = 'count = ' + this.state.count
-    }
-
-    componentDidUpdate() {
-        document.title = 'count = ' + this.state.count
     }
 
     render() {
