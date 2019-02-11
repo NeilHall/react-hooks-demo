@@ -13,19 +13,11 @@ library.add(faReact, faAnchor)
 export default class App extends Component{
     constructor(props){
         super(props);
-        this.state={
+        this.state = {
             count: 10
         }
         this.decrementCount = this.decrementCount.bind(this)
         this.incrementCount = this.incrementCount.bind(this)
-    }
-
-    componentDidMount() {
-        document.title = 'count = ' + this.state.count
-    }
-
-    componentDidUpdate() {
-        document.title = 'count = ' + this.state.count
     }
 
     incrementCount(){
@@ -40,24 +32,32 @@ export default class App extends Component{
         })
     }
 
+    componentDidMount() {
+        document.title = 'count = ' + this.state.count
+    }
+
+    componentDidUpdate() {
+        document.title = 'count = ' + this.state.count
+    }
+
     render() {
         return (
-          <div className="center">
-              <h1>
+            <div className="center">
+                <h1>
                   <FontAwesomeIcon icon={['fab', 'react']} size='2x' style={{"color":"#61dafb"}} />
                   &nbsp;React Hooks&nbsp;
                   <FontAwesomeIcon icon={['fas', 'anchor']} size='2x' style={{"color":"#61dafb"}} />
-              </h1>
-                <p>
-                    <Button onClick={this.decrementCount}>Remove Item</Button>
-                    &nbsp;&nbsp;
-                    <Button onClick={this.incrementCount}>Add Item</Button>
-                </p>
-              <h2>
-                List Downloaded from API:-
-              </h2>
-            <FetchData count={this.state.count} />
-          </div>
+                </h1>
+
+                <Button onClick={this.decrementCount}>Remove Item</Button>
+                &nbsp;&nbsp;
+                <Button onClick={this.incrementCount}>Add Item</Button>
+
+                <h2>
+                    List Downloaded from API:-
+                </h2>
+                <FetchData count={this.state.count} />
+            </div>
         );
     }
 }
