@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import './App.css';
-import FetchData from './fetchdata.js'
+import FetchData from './fetchdata.jsx'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faAnchor } from '@fortawesome/free-solid-svg-icons'
-import Button from '@material-ui/core/Button';
-import 'typeface-roboto';
+import Button from '@mui/material/Button';
+import '@fontsource/roboto';
 
 library.add(faReact, faAnchor)
 

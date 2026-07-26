@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import ListItem from './listItem.js'
+import {Component} from 'react';
+import ListItem from './listItem.jsx'
 
 class FetchData extends Component {
     constructor(props){
@@ -10,7 +10,7 @@ class FetchData extends Component {
     }
 
     async fetchAsync () {
-        let response = await fetch('https://swapi.co/api/people/'); // await fetch call
+        let response = await fetch('https://swapi.dev/api/people/'); // await fetch call
         let data = await response.json();                                 // proceed when promise is resolved
 
         this.setState({                                             // proceed when second promise is resolved
